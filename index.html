@@ -1102,18 +1102,18 @@
     </div>
     <div class="contact-form-side">
       <h3>Envoyez-nous un message</h3>
-      <form onsubmit="submitForm(event)">
+      <form action="https://formspree.io/f/xlgkgblp" method="POST">
         <div class="form-group">
           <label>Votre nom</label>
-          <input type="text" placeholder="Prénom et nom" required>
+          <input type="text" name="nom" placeholder="Prénom et nom" required>
         </div>
         <div class="form-group">
           <label>Téléphone</label>
-          <input type="tel" placeholder="06 XX XX XX XX">
+          <input type="tel" name="telephone" placeholder="06 XX XX XX XX">
         </div>
         <div class="form-group">
           <label>Type de prestation</label>
-          <select>
+          <select name="prestation">
             <option value="">Sélectionnez une prestation</option>
             <option>Soirée anniversaire</option>
             <option>Film hommage</option>
@@ -1124,7 +1124,7 @@
         </div>
         <div class="form-group">
           <label>Votre message</label>
-          <textarea placeholder="Décrivez votre événement : date, lieu, nombre de personnes, vos idées..."></textarea>
+          <textarea name="message" placeholder="Décrivez votre événement : date, lieu, nombre de personnes, vos idées..."></textarea>
         </div>
         <button type="submit" class="form-submit">Envoyer ma demande</button>
       </form>
@@ -1151,17 +1151,7 @@
     event.target.classList.add('active');
   }
 
-  function submitForm(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Message envoyé ✓';
-    btn.style.background = '#4CAF50';
-    setTimeout(() => {
-      btn.textContent = 'Envoyer ma demande';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
+
 
   // Nav scroll effect
   window.addEventListener('scroll', () => {
